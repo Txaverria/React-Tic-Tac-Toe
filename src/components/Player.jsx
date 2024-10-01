@@ -17,7 +17,7 @@ export default function Player({ initialName, symbol }) {
 
   if (isEditing) {
     editablePlayerName = (
-      <input type="text" required value={playerName} onChange={handleChange}></input>
+      <input type="text" required value={playerName} onChange={handleChange} className="player-name-input"></input>
     );
     btnCaption = "Save";
   }
@@ -28,7 +28,7 @@ export default function Player({ initialName, symbol }) {
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={manageEditing}>{btnCaption}</button>
+      <button onClick={manageEditing} className="edit-button">{btnCaption}</button>
     </li>
   );
 }
