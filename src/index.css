@@ -16,8 +16,12 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-button {
+button, input {
   font-family: "Hind", sans-serif;
+}
+
+.player-name-input {
+  font-weight: bold;
 }
 
 body {
@@ -104,6 +108,10 @@ h1 {
   padding: 0.5rem;
   border-radius: 4px;
   font-weight: bold;
+}
+
+.edit-button {
+  line-height: 2em;
 }
 
 .player-name {
