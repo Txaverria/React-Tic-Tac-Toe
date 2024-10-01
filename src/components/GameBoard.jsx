@@ -8,6 +8,7 @@ const initialGameBoard = [
 
 export default function GameBoard() {
   const [gameBoard, setGameBoard] = useState(initialGameBoard);
+  const [clickedSquares, setClickedSquares] = useState([]); // New state for clicked squares
 
   function handleSelectSquare(rowIndex, colIndex) {
     setGameBoard((prevGameBoard) => {
@@ -15,6 +16,12 @@ export default function GameBoard() {
       updatedBoard[rowIndex][colIndex] = "X";
       return updatedBoard;
     });
+
+    // Update the clicked squares
+    setClickedSquares((prevClickedSquares) => [
+      ...prevClickedSquares,
+      { row: rowIndex, col: colIndex },
+    ]);
   }
 
   return (
@@ -22,13 +29,23 @@ export default function GameBoard() {
       {gameBoard.map((row, rowIndex) => (
         <li key={rowIndex}>
           <ol>
-            {row.map((playerSymbol, colIndex) => (
-              <li key={colIndex}>
-                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>
-                  {playerSymbol}
-                </button>
-              </li>
-            ))}
+            {row.map((playerSymbol, colIndex) => {
+              // Check if the current square has been clicked
+              const isClicked = clickedSquares.some(
+                (square) => square.row === rowIndex && square.col === colIndex
+              );
+
+              return (
+                <li key={colIndex}>
+                  <button
+                    onClick={() => handleSelectSquare(rowIndex, colIndex)}
+                    className={`board-button ${isClicked ? "shown" : ""}`}
+                  >
+                    {playerSymbol}
+                  </button>
+                </li>
+              );
+            })}
           </ol>
         </li>
       ))}
