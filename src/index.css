@@ -21,10 +21,6 @@ input {
   font-family: "Hind", sans-serif;
 }
 
-.player-name-input {
-  font-weight: bold;
-}
-
 body {
   background: radial-gradient(circle at top, rgba(241, 210, 70, 0.98), rgba(250, 176, 103, 0.87)),
     url("bg-pattern-dark.png");
@@ -76,6 +72,8 @@ h1 {
   align-items: center;
   width: 50%;
   border: 2px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 #players.highlight-player li.active {

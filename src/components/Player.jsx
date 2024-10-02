@@ -17,18 +17,20 @@ export default function Player({ initialName, symbol, isActive }) {
 
   if (isEditing) {
     editablePlayerName = (
-      <input type="text" required value={playerName} onChange={handleChange} className="player-name-input"></input>
+      <input type="text" required value={playerName} onChange={handleChange}></input>
     );
     btnCaption = "Save";
   }
 
   return (
-    <li className={isActive ? 'active' : ''}>
+    <li className={isActive ? "active" : ""}>
       <span className="player">
         {editablePlayerName}
         <span className="player-symbol">{symbol}</span>
       </span>
-      <button onClick={manageEditing} className="edit-button">{btnCaption}</button>
+      <button onClick={manageEditing} className="edit-button">
+        {btnCaption}
+      </button>
     </li>
   );
 }
