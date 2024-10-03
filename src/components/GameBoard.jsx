@@ -40,6 +40,7 @@ export default function GameBoard({ onSelectSquare, turns }) {
                   <button
                     onClick={() => onSelectSquare(rowIndex, colIndex)}
                     className={`board-button ${isClicked ? "shown" : ""}`}
+                    disabled={playerSymbol !== null}
                   >
                     {playerSymbol}
                   </button>
